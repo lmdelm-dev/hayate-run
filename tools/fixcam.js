@@ -1,0 +1,15 @@
+﻿const fs = require('fs'), vm = require('vm');
+const F = 'C:/Users/Pc/hayate-run/src/camera.js';
+let s = fs.readFileSync(F, 'utf8');
+const a = "function camEase(dt){const m=SHOTS[G.shot]||SHOTS.chase,k=G.cut?1:1-Math.exp(-dt*7);\n if(G){cam.x=(G.px||0)*.7+cam.ox;cam.y=cam.oy+(G.pulse||0)*.08;cam.z=cam.oz}\n for(const key of['ox','oy','oz','la','fov','roll'])cam[key]+=(m[key]-cam[key])*k;\n G.cut=0}";
+if (!s.includes(a)) throw new Error('camEase anchor missing');
+s = s.split(a).join("function camEase(dt){const m=SHOTS[G.shot]||SHOTS.chase,k=G.cut?1:1-Math.exp(-dt*7);\n for(const key of['ox','oy','oz','la','fov','roll'])cam[key]+=(m[key]-cam[key])*k;\n if(G){cam.x=(G.px||0)*.7+cam.ox;cam.y=cam.oy+(G.pulse||0)*.08;cam.z=cam.oz}\n G.cut=0}");
+fs.writeFileSync(F, s);
+new vm.Script(s, { filename: F });
+const T = 'C:/Users/Pc/hayate-run/test/smoke.js';
+let t = fs.readFileSync(T, 'utf8');
+const b = "classList:{_s:new Set(),add(c){this._s.add(c)},remove(c){this._s.delete(c)},contains(c){return this._s.has(c)}},";
+if (!t.includes(b)) throw new Error('stub anchor missing');
+t = t.split(b).join("classList:{_s:new Set(),add(c){this._s.add(c)},remove(c){this._s.delete(c)},toggle(c,f){if(f===undefined)f=!this._s.has(c);if(f)this._s.add(c);else this._s.delete(c)},contains(c){return this._s.has(c)}},");
+fs.writeFileSync(T, t);
+console.log('cam + stub fixed');

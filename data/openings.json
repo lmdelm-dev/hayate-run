@@ -1,0 +1,85 @@
+{
+  "openings": [
+    {
+      "id": "hayate-opening-1",
+      "name": "Hayate Run Opening",
+      "beats": 128,
+      "sections": [
+        {
+          "startBeat": 0,
+          "endBeat": 8,
+          "name": "Title",
+          "env": "auto",
+          "camera": "chase",
+          "weather": "theme",
+          "fx": [
+            "flash",
+            "title-card"
+          ]
+        },
+        {
+          "startBeat": 8,
+          "endBeat": 16,
+          "name": "Intro",
+          "env": "auto",
+          "camera": "sideR",
+          "weather": "theme",
+          "fx": [
+            "speed-lines"
+          ]
+        },
+        {
+          "startBeat": 16,
+          "endBeat": 48,
+          "name": "Verse",
+          "env": "auto-8",
+          "camera": "sequence",
+          "weather": "theme",
+          "fx": [
+            "speed-lines",
+            "captions"
+          ]
+        },
+        {
+          "startBeat": 48,
+          "endBeat": 64,
+          "name": "Build-up",
+          "env": "hold",
+          "camera": "close-face-low",
+          "weather": "rain",
+          "fx": [
+            "slow-motion",
+            "dim",
+            "riser"
+          ]
+        },
+        {
+          "startBeat": 64,
+          "endBeat": 112,
+          "name": "Chorus / Drop",
+          "env": "auto-4",
+          "camera": "montage",
+          "weather": "theme",
+          "fx": [
+            "flash",
+            "shake",
+            "burst",
+            "style-cuts"
+          ]
+        },
+        {
+          "startBeat": 112,
+          "endBeat": 128,
+          "name": "Outro",
+          "env": "sunset-dusk",
+          "camera": "wide",
+          "weather": "theme",
+          "fx": [
+            "letterbox",
+            "title-card"
+          ]
+        }
+      ]
+    }
+  ]
+}

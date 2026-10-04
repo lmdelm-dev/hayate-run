@@ -1,0 +1,11 @@
+﻿const fs = require('fs');
+const T = 'C:/Users/Pc/hayate-run/test/smoke.js';
+let t = fs.readFileSync(T, 'utf8');
+const a = "ok(dop.sections&&dop.sections[0].startBeat===0,'openings.json timeline starts at beat 0');";
+if (!t.includes(a)) throw new Error('anchor1 missing');
+t = t.split(a).join("const secs=dop.openings&&dop.openings[0]&&dop.openings[0].sections;\nok(secs&&secs[0].startBeat===0,'openings.json timeline starts at beat 0');");
+const b = "ok(dop.sections[dop.sections.length-1].endBeat>=128,'openings.json timeline covers 128 beats');";
+if (!t.includes(b)) throw new Error('anchor2 missing');
+t = t.split(b).join("ok(secs&&secs[secs.length-1].endBeat>=128,'openings.json timeline covers 128 beats');");
+fs.writeFileSync(T, t);
+console.log('openings test fixed');

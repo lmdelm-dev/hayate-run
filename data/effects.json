@@ -1,0 +1,74 @@
+{
+  "effects": [
+    {
+      "id": "speed-lines",
+      "kind": "overlay",
+      "desc": "Radial manga speed lines, intensity follows beat pulse"
+    },
+    {
+      "id": "motion-trail",
+      "kind": "character",
+      "desc": "Afterimage streak on sprint via pulse-scaled lines"
+    },
+    {
+      "id": "screen-shake",
+      "kind": "camera",
+      "desc": "Trauma-based shake on hits, kicks and drops"
+    },
+    {
+      "id": "impact-frame",
+      "kind": "freeze",
+      "desc": "Brief hitstop freeze on damage (0.09s)"
+    },
+    {
+      "id": "flash",
+      "kind": "overlay",
+      "desc": "White flash on camera cuts and the drop"
+    },
+    {
+      "id": "vignette",
+      "kind": "overlay",
+      "desc": "Darkened corners, stronger at night"
+    },
+    {
+      "id": "bloom",
+      "kind": "overlay",
+      "desc": "Downsampled screen blend glow"
+    },
+    {
+      "id": "color-grade",
+      "kind": "overlay",
+      "desc": "Lighting tint multiply per environment"
+    },
+    {
+      "id": "chromatic-fringe",
+      "kind": "overlay",
+      "desc": "Red/cyan edge fringe scaled by flash"
+    },
+    {
+      "id": "film-grain",
+      "kind": "overlay",
+      "desc": "Animated grain dots, quality-scaled"
+    },
+    {
+      "id": "fog",
+      "kind": "weather",
+      "desc": "Ground fog band on mist/fog weather"
+    },
+    {
+      "id": "mist",
+      "kind": "weather",
+      "desc": "Drifting mist blobs"
+    },
+    {
+      "id": "rain",
+      "kind": "weather",
+      "desc": "Streaked rain lines"
+    },
+    {
+      "id": "petals",
+      "kind": "weather",
+      "desc": "Tumbling sakura petals and leaves"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+﻿.scr{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;gap:4vw;padding:24px;background:linear-gradient(160deg,#2a1458 0%,#7a2f8f 45%,#ff7a8a 80%,#ffc27a 100%);z-index:5}
+.scr.off{display:none}
+.title{transform:skewX(-8deg);flex:0 1 auto}
+.title b{display:block;font:400 clamp(64px,13vw,160px)/.9 var(--disp);color:var(--paper);text-shadow:5px 5px 0 var(--ink),-2px -2px 0 var(--sakura)}
+.title i{display:block;font:400 clamp(22px,4vw,44px)/1.2 var(--disp);font-style:normal;color:var(--sun);margin-top:.4em;text-shadow:3px 3px 0 var(--ink)}
+.panel{width:min(520px,100%);display:flex;flex-direction:column;gap:12px;max-height:100%;overflow:auto}
+h2{margin:6px 0 0;font:400 18px var(--disp)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.card{flex:1 1 150px;background:rgba(27,19,64,.72);color:var(--paper);border:3px solid transparent;border-radius:4px;padding:10px;text-align:left;font:inherit;cursor:pointer;transform:skewX(-6deg)}
+.card[aria-pressed=true]{border-color:var(--sakura);background:var(--ink);box-shadow:5px 5px 0 var(--sakura)}
+.card:focus-visible,.go:focus-visible,.ghost:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+.card strong{display:block;font-weight:900;font-size:15px}
+.card strong small{color:var(--sun);font-weight:500}
+.card span{font-size:12px;opacity:.85}
+.card svg{width:44px;height:44px;float:right;margin-left:6px}
+.go{margin-top:8px;font:400 22px var(--disp);padding:14px;border:0;background:var(--sun);color:var(--ink);cursor:pointer;transform:skewX(-8deg);box-shadow:6px 6px 0 var(--ink)}
+.go:active{transform:skewX(-8deg) translate(3px,3px);box-shadow:3px 3px 0 var(--ink)}
+.ghost{font:400 16px var(--disp);padding:10px;border:3px solid var(--paper);background:transparent;color:var(--paper);cursor:pointer;transform:skewX(-8deg)}
+small.h{opacity:.75;font-size:12px}
+select.card{transform:none;width:100%}
+select.card optgroup{background:#1b1340;color:var(--paper);font-weight:900}
+select.card option{background:#2a1f52;color:var(--paper)}
+.setrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.setrow label{font-size:14px}
+#credits{font-size:12px;opacity:.8}
+#end h1{font:400 clamp(40px,9vw,90px) var(--disp);margin:0;transform:skewX(-8deg);text-shadow:5px 5px 0 var(--ink)}

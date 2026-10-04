@@ -1,0 +1,501 @@
+[
+  {
+    "id": "hina",
+    "n": "Hina",
+    "name": "Hina",
+    "jp": "ヒナ",
+    "role": "School sprinter",
+    "hair": [
+      255,
+      120,
+      170
+    ],
+    "skin": [
+      255,
+      224,
+      204
+    ],
+    "top": [
+      245,
+      245,
+      255
+    ],
+    "legs": [
+      30,
+      44,
+      120
+    ],
+    "eye": [
+      255,
+      90,
+      150
+    ],
+    "long": 1,
+    "skirt": 1,
+    "rib": 1,
+    "speed": 1,
+    "jumpV": 8.5,
+    "desc": "First-year who sprints the school commute like an opening theme."
+  },
+  {
+    "id": "kaito",
+    "n": "Kaito",
+    "name": "Kaito",
+    "jp": "カイト",
+    "role": "Track captain",
+    "hair": [
+      60,
+      140,
+      255
+    ],
+    "skin": [
+      246,
+      208,
+      178
+    ],
+    "top": [
+      255,
+      140,
+      40
+    ],
+    "legs": [
+      30,
+      34,
+      62
+    ],
+    "eye": [
+      40,
+      90,
+      210
+    ],
+    "spike": 1,
+    "band": 1,
+    "acc": [
+      255,
+      255,
+      255
+    ],
+    "speed": 1.08,
+    "jumpV": 8.5,
+    "desc": "Reliable captain. Slightly faster, steady jumps."
+  },
+  {
+    "id": "ren",
+    "n": "Ren",
+    "name": "Ren",
+    "jp": "レン",
+    "role": "Night courier",
+    "hair": [
+      236,
+      238,
+      250
+    ],
+    "skin": [
+      242,
+      214,
+      194
+    ],
+    "top": [
+      34,
+      34,
+      46
+    ],
+    "legs": [
+      70,
+      34,
+      56
+    ],
+    "eye": [
+      255,
+      60,
+      90
+    ],
+    "scarf": 1,
+    "acc": [
+      255,
+      60,
+      90
+    ],
+    "speed": 1.12,
+    "jumpV": 9,
+    "desc": "Midnight delivery runner. Fast with a floaty jump."
+  },
+  {
+    "id": "yuna",
+    "n": "Yuna",
+    "name": "Yuna",
+    "jp": "ユナ",
+    "role": "Rainy-city girl",
+    "hair": [
+      110,
+      200,
+      255
+    ],
+    "skin": [
+      244,
+      205,
+      189
+    ],
+    "top": [
+      234,
+      250,
+      255
+    ],
+    "legs": [
+      49,
+      75,
+      114
+    ],
+    "eye": [
+      35,
+      132,
+      198
+    ],
+    "long": 1,
+    "skirt": 1,
+    "hood": 1,
+    "acc": [
+      125,
+      208,
+      255
+    ],
+    "speed": 1.01,
+    "jumpV": 8.5,
+    "desc": "Sings in the rain. Her hooded coat flutters behind her."
+  },
+  {
+    "id": "akari",
+    "n": "Akari",
+    "name": "Akari",
+    "jp": "アカリ",
+    "role": "Sakura-road dancer",
+    "hair": [
+      217,
+      92,
+      133
+    ],
+    "skin": [
+      247,
+      210,
+      192
+    ],
+    "top": [
+      255,
+      240,
+      245
+    ],
+    "legs": [
+      98,
+      75,
+      116
+    ],
+    "eye": [
+      143,
+      65,
+      111
+    ],
+    "long": 1,
+    "skirt": 1,
+    "hairpin": 1,
+    "acc": [
+      255,
+      170,
+      205
+    ],
+    "speed": 0.99,
+    "jumpV": 9.2,
+    "desc": "Dances down the petal road. Highest, floatiest jump."
+  },
+  {
+    "id": "sora",
+    "n": "Sora",
+    "name": "Sora",
+    "jp": "ソラ",
+    "role": "Mountain runner",
+    "hair": [
+      125,
+      92,
+      255
+    ],
+    "skin": [
+      220,
+      174,
+      145
+    ],
+    "top": [
+      246,
+      162,
+      58
+    ],
+    "legs": [
+      37,
+      51,
+      84
+    ],
+    "eye": [
+      73,
+      52,
+      173
+    ],
+    "spike": 1,
+    "goggles": 1,
+    "acc": [
+      255,
+      255,
+      255
+    ],
+    "speed": 1.15,
+    "jumpV": 8.5,
+    "desc": "Trail specialist. Very fast on climbs, goggles on."
+  },
+  {
+    "id": "mei",
+    "n": "Mei",
+    "name": "Mei",
+    "jp": "メイ",
+    "role": "City courier",
+    "hair": [
+      240,
+      179,
+      78
+    ],
+    "skin": [
+      241,
+      194,
+      167
+    ],
+    "top": [
+      255,
+      255,
+      255
+    ],
+    "legs": [
+      41,
+      42,
+      57
+    ],
+    "eye": [
+      140,
+      87,
+      36
+    ],
+    "cap": 1,
+    "earphones": 1,
+    "acc": [
+      243,
+      154,
+      24
+    ],
+    "speed": 1.09,
+    "jumpV": 8.8,
+    "desc": "Day-shift courier racing the lunch rush to a beat."
+  },
+  {
+    "id": "haru",
+    "n": "Haru",
+    "name": "Haru",
+    "jp": "ハル",
+    "role": "Street skater",
+    "hair": [
+      23,
+      25,
+      35
+    ],
+    "skin": [
+      217,
+      170,
+      146
+    ],
+    "top": [
+      75,
+      79,
+      104
+    ],
+    "legs": [
+      23,
+      25,
+      35
+    ],
+    "eye": [
+      70,
+      214,
+      173
+    ],
+    "cap": 1,
+    "acc": [
+      93,
+      225,
+      178
+    ],
+    "speed": 1.18,
+    "jumpV": 8.2,
+    "desc": "Skater punk. Fastest legs, lower jump."
+  },
+  {
+    "id": "rei",
+    "n": "Rei",
+    "name": "Rei",
+    "jp": "レイ",
+    "role": "Moonlit mage",
+    "hair": [
+      184,
+      162,
+      255
+    ],
+    "skin": [
+      240,
+      203,
+      185
+    ],
+    "top": [
+      57,
+      48,
+      92
+    ],
+    "legs": [
+      33,
+      26,
+      59
+    ],
+    "eye": [
+      167,
+      125,
+      255
+    ],
+    "long": 1,
+    "skirt": 1,
+    "cape": 1,
+    "acc": [
+      181,
+      140,
+      255
+    ],
+    "speed": 0.96,
+    "jumpV": 9,
+    "desc": "Quiet mage whose cape glows under the moon."
+  },
+  {
+    "id": "daichi",
+    "n": "Daichi",
+    "name": "Daichi",
+    "jp": "ダイチ",
+    "role": "Forest ranger",
+    "hair": [
+      78,
+      106,
+      63
+    ],
+    "skin": [
+      219,
+      169,
+      135
+    ],
+    "top": [
+      86,
+      124,
+      85
+    ],
+    "legs": [
+      41,
+      61,
+      43
+    ],
+    "eye": [
+      121,
+      167,
+      92
+    ],
+    "bandana": 1,
+    "acc": [
+      139,
+      208,
+      108
+    ],
+    "speed": 1.06,
+    "jumpV": 8.8,
+    "desc": "Ranger who knows every forest shortcut."
+  },
+  {
+    "id": "noa",
+    "n": "Noa",
+    "name": "Noa",
+    "jp": "ノア",
+    "role": "Cyber idol",
+    "hair": [
+      49,
+      232,
+      232
+    ],
+    "skin": [
+      239,
+      196,
+      181
+    ],
+    "top": [
+      29,
+      35,
+      64
+    ],
+    "legs": [
+      21,
+      24,
+      44
+    ],
+    "eye": [
+      51,
+      230,
+      255
+    ],
+    "visor": 1,
+    "acc": [
+      255,
+      67,
+      215
+    ],
+    "speed": 1.1,
+    "jumpV": 8.8,
+    "desc": "Neon-stage idol streaming her run live."
+  },
+  {
+    "id": "kuro",
+    "n": "Kuro",
+    "name": "Kuro",
+    "jp": "クロ",
+    "role": "Rival",
+    "hair": [
+      35,
+      32,
+      48
+    ],
+    "skin": [
+      232,
+      190,
+      165
+    ],
+    "top": [
+      120,
+      30,
+      60
+    ],
+    "legs": [
+      26,
+      24,
+      36
+    ],
+    "eye": [
+      255,
+      70,
+      80
+    ],
+    "spike": 1,
+    "scarf": 1,
+    "acc": [
+      255,
+      60,
+      90
+    ],
+    "speed": 1.2,
+    "jumpV": 9,
+    "desc": "Your rival. Fastest of all — beat him to the final cut."
+  }
+]

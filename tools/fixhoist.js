@@ -1,0 +1,16 @@
+﻿const fs = require('fs'), vm = require('vm');
+let e = fs.readFileSync('C:/Users/Pc/hayate-run/src/engine.js', 'utf8');
+const a = 'function rs(){const cap=(typeof qualityGet==="function")?qualityGet().dpr:2;const d=Math.min(devicePixelRatio||1,cap);';
+if (!e.includes(a)) throw new Error('rs anchor missing');
+e = e.split(a).join('function rs(){const cap=(typeof DPR_CAP==="number")?DPR_CAP:2;const d=Math.min(devicePixelRatio||1,cap);');
+fs.writeFileSync('C:/Users/Pc/hayate-run/src/engine.js', e);
+let p = fs.readFileSync('C:/Users/Pc/hayate-run/src/performance.js', 'utf8');
+p = 'var DPR_CAP=2;\n' + p;
+const b = '  Quality.current = id;';
+if (!p.includes(b)) throw new Error('quality anchor missing');
+p = p.split(b).join('  Quality.current = id;\n  try { DPR_CAP = qualityGet().dpr; } catch (err) { /* ignore */ }');
+p += '\ntry { DPR_CAP = qualityGet().dpr; } catch (err) { /* ignore */ }\n';
+fs.writeFileSync('C:/Users/Pc/hayate-run/src/performance.js', p);
+new vm.Script(e, { filename: 'engine.js' });
+new vm.Script(p, { filename: 'performance.js' });
+console.log('hoist fix ok');

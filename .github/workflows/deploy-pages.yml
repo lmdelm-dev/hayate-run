@@ -1,0 +1,54 @@
+﻿name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate static site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run smoke suite (fails the build if broken)
+        run: node test/smoke.js
+      - name: Check Pages-sensitive paths
+        run: |
+          node -e "const fs=require('fs');const h=fs.readFileSync('index.html','utf8');if(h.includes('src=\"/')||h.includes('href=\"/')){console.error('absolute asset path found');process.exit(1)}console.log('paths ok')"
+          test -f index.html || (echo 'index.html missing' && exit 1)
+          test -f src/main.js || (echo 'src/main.js missing' && exit 1)
+
+  deploy:
+    name: Deploy
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

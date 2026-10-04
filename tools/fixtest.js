@@ -1,0 +1,11 @@
+﻿const fs = require('fs');
+const R = 'C:/Users/Pc/hayate-run/';
+let s = fs.readFileSync(R + 'test/smoke.js', 'utf8');
+const bad = "g.localStorage={_m:{},getItem(k){return(k in this._m)?this._m[k]:null},setItem(k,v){this._m[k]=String(v)},removeItem(k){delete this._m[k]}};\nFakeAC.prototype.suspend=function(){return Promise.resolve()};\nFakeAC.prototype.resume=function(){return Promise.resolve()};\n";
+if (!s.includes(bad)) throw new Error('injected block not found');
+s = s.split(bad).join('');
+const anchor = 'g.clearInterval=()=>{};';
+if (!s.includes(anchor)) throw new Error('anchor missing');
+s = s.split(anchor).join(anchor + '\n' + bad);
+fs.writeFileSync(R + 'test/smoke.js', s);
+console.log('harness fixed');
