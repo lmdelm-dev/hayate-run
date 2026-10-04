@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ECHO//STORM — Music Survival Prototype</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="menu" class="overlay">
+  <div class="panel">
+    <div class="eyebrow">MUSIC SURVIVAL / PROTOTYPE 01</div>
+    <h1>ECHO<span>//</span>STORM</h1>
+    <p>You don't fight the song. You survive it.</p>
+    <label class="upload">Choose your own song<input id="song" type="file" accept="audio/*"></label>
+    <div id="filename">No song selected — a synthetic storm will be used.</div>
+    <button id="start">ENTER THE STORM</button>
+    <div class="controls">WASD / arrows = move · Shift = sprint · Space = dash · Esc = pause</div>
+  </div>
+</div>
+<div id="hud" class="hidden">
+  <div><b id="wave">WAVE 1</b><span id="style">ANIME</span></div>
+  <div class="meter"><span>STORM</span><i id="energy"></i></div>
+  <div id="time">00:00</div>
+</div>
+<div id="pause" class="overlay hidden"><div class="panel"><h2>STORM PAUSED</h2><button id="resume">RESUME</button></div></div>
+<div id="end" class="overlay hidden"><div class="panel"><div class="eyebrow">SONG COMPLETE</div><h2>THE STORM PASSED</h2><p id="stats"></p><button id="again">RUN AGAIN</button></div></div>
+<script src="game.js"></script>
+</body>
+</html>
