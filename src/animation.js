@@ -28,8 +28,13 @@ function armJ(pose,ph,d,flat){
 
 function drawChara(ch,o){
  const pose=o.pose||'run',ph=o.ph||0,t=o.t||0,wind=clamp(o.wind||0,0,1);
- const P0=poseOf(pose),V=viewAt(o.x||0,o.z||0);
- ctx.save();
+  const P0=poseOf(pose),V=viewAt(o.x||0,o.z||0);
+  if(ch.sprite&&typeof spriteReady==='function'&&spriteReady(ch)){
+    ctx.save();
+    if(V.v=='side'&&V.m<0)ctx.scale(-1,1);
+    drawSpriteChara(ch,o);
+    ctx.restore();return}
+  ctx.save();
  if(pose=='land'){const f=clamp((o.landT||0)/.25,0,1);ctx.translate(0,0);ctx.scale(1,1-.17*f)}
  if(pose=='hit'){const f=clamp((o.hitT||0)/.7,0,1);ctx.translate(0,.95);ctx.rotate(-.36*f);ctx.translate(0,-.95)}
  if(V.v=='side'&&V.m<0)ctx.scale(-1,1);

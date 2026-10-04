@@ -70,12 +70,14 @@ globalThis.__T={
  get running(){return running},set running(v){running=v},
  get ac(){return ac},set ac(v){ac=v},
  get objs(){return objs},get si(){return si},get ci(){return ci},
- reset,update,render,onBeat,setShot,camEase,envCut,setEnv,wxSet,wxForce,drawChara,hit,finish,togglePause,pauseGame,resumeGame,setQuality,QLEVELS,Quality,checkCollisions,collectOrb,spawnBurst,OPENINGS,
- ENVS,PROPS,OBS,PROPSZ,SHOTS,STY,CHARS,PEOPLE,SONGS,WXP,AUTO_ORDER,autoEnvList,viewAt,
- spawnRow,mkDecor,drawHorizon,drawGround,lightApply,post,bloom,laneWarn,envById,envCount
+  reset,update,render,onBeat,setShot,camEase,envCut,setEnv,wxSet,wxForce,drawChara,hit,finish,togglePause,pauseGame,resumeGame,setQuality,QLEVELS,Quality,checkCollisions,collectOrb,spawnBurst,OPENINGS,
+  ENVS,PROPS,OBS,PROPSZ,SHOTS,STY,CHARS,PEOPLE,SONGS,WXP,AUTO_ORDER,autoEnvList,viewAt,
+  spawnRow,mkDecor,drawHorizon,drawGround,lightApply,post,bloom,laneWarn,envById,envCount,
+  spriteFrame,spriteRect,spriteReady,drawSpriteChara,spriteLoadAll,
+  get ctx(){return ctx}
 };`;
 
-const files=['engine.js','audio.js','characters.js','animation.js','environments.js','renderer.js','weather.js','lighting.js','particles.js','effects.js','camera.js','director.js','player.js','collision.js','input.js','ui.js','performance.js','main.js'];
+const files=['engine.js','audio.js','characters.js','animation.js','sprites.js','environments.js','renderer.js','weather.js','lighting.js','particles.js','effects.js','camera.js','director.js','player.js','collision.js','input.js','ui.js','performance.js','main.js'];
 const bundle=files.map(f=>fs.readFileSync(path.join(root,'src',f),'utf8')).join('\n;\n')+EPilogue;
 try{vm.runInThisContext(bundle,{filename:'bundle.js'})}
 catch(e){console.log('FAIL  bundle load: '+e.stack);process.exit(1)}
@@ -205,6 +207,36 @@ let rosterErr=null;
 ['run','jump','fall','land','hit'].forEach(p=>{['chase','sideR','front'].forEach(sh=>{T.setShot(sh,1);T.camEase(.016);
  T.CHARS.forEach(c=>{try{T.drawChara(c,{pose:p,ph:1.1,t:2,x:0,z:0,wind:.5,landT:.2,hitT:.5})}catch(e){rosterErr=String(e).split('\n')[0]+' ['+c.id+' '+p+' '+sh+']'}})})});
 ok(!rosterErr,'all 12+ characters render in 5 poses x 3 views'+(rosterErr?' -> '+rosterErr:''));
+console.log('\n-- pixel guest sprites --');
+const spr=T.CHARS.filter(c=>c.sprite);
+ok(spr.length===2,'2 pixel-guest runners registered (got '+spr.length+')');
+let sprErr=null;
+spr.forEach(c=>{const s=c.sprite;
+ try{
+  if(!(s.src&&s.fw>0&&s.cols>0&&s.count>0))throw new Error('bad sprite meta');
+  const png=path.join(root,s.src);
+  if(!fs.existsSync(png))throw new Error('missing '+s.src);
+  if(fs.statSync(png).size>1024*1024)throw new Error('too big '+s.src);
+  const at=JSON.parse(fs.readFileSync(png.replace(/\.png$/,'.json'),'utf8'));
+  if(Object.keys(at.frames).length!==s.count)throw new Error('atlas count mismatch');
+  const frs=[];for(let k=0;k<80;k++)frs.push(T.spriteFrame(c,'run',k*.37));
+  if(!frs.every(f=>f>=0&&f<s.count)||new Set(frs).size<4)throw new Error('frames do not cycle');
+  const r=T.spriteRect(c,s.count-1);
+  if(r[0]+r[2]>at.meta.size.w||r[1]+r[3]>at.meta.size.h)throw new Error('frame outside sheet');
+  const keep=T.ctx.drawImage;
+  let drew=null;T.ctx.drawImage=function(){drew=Array.from(arguments)};
+  s.img={complete:true,naturalWidth:1120,width:1120,height:1120};
+  if(!T.spriteReady(c))throw new Error('spriteReady false with loaded img');
+  T.setShot('sideR',1);T.camEase(.016);
+  ['run','jump','fall','land','hit'].forEach(p=>T.drawChara(c,{pose:p,ph:1.2,t:2,x:0,z:0,wind:.5}));
+  T.ctx.drawImage=keep;
+  if(!drew)throw new Error('no drawImage call');
+  if(drew[1]<0||drew[2]<0||drew[1]+drew[3]>1120||drew[2]+drew[4]>1120)throw new Error('source rect out of bounds');
+  if(!(drew[7]>0&&drew[8]>0))throw new Error('dest size invalid');
+  delete s.img;
+  T.drawChara(c,{pose:'jump',ph:1.2,t:2,x:0,z:0,wind:.5});
+ }catch(e){sprErr=String(e).split('\n')[0]+' ['+c.id+']'}});
+ok(!sprErr,'sprite sheets valid, cycle, draw in-bounds, fallback clean'+(sprErr?' -> '+sprErr:''));
 console.log('\n-- collectibles + combo --');
 T.reset();T.running=true;
 T.objs.push({t:'orb',x:T.G.px,z:0.4,w:.9,d:.9,h:1.2,hit:false,ci:0,sd:1,seed:0});

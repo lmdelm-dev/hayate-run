@@ -39,7 +39,7 @@ function uiBuildCards(id, arr, html, pick) {
 }
 function uiInit() {
   uiBuildCards('#songs', SONGS, s => '<strong>' + s.jp + '</strong><span>' + s.n + ' · ' + s.bpm + ' BPM</span>', i => { si = i; });
-  uiBuildCards('#chars', CHARS, c => icon(c) + '<strong>' + c.n + ' <small>' + c.jp + '</small></strong><span>' + c.role + ' · ' + c.desc + '</span>', i => { ci = i; });
+  uiBuildCards('#chars', CHARS, c => icon(c) + '<strong>' + c.n + ' <small>' + c.jp + '</small></strong><span>' + c.role + (c.sprite ? ' · PIXEL GUEST' : '') + ' · ' + c.desc + '</span>', i => { ci = i; });
   const sel = $('#env');
   if (sel && typeof ENVS !== 'undefined') {
     const byTheme = {};

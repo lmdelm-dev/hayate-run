@@ -1,16 +1,18 @@
 ﻿# Hayate Run (疾風 RUN)
 
-An **anime-opening-inspired browser runner**. Pick one of 12 original runners
-and sprint through a 128-beat opening: beat-synced camera cuts, 160 cinematic
-worlds, weather, lighting, and a hype drop — all procedural, all static, no
-server.
+An **anime-opening-inspired browser runner**. Pick one of 14 runners (12
+original + 2 CC0 pixel guests) and sprint through a 128-beat opening:
+beat-synced camera cuts, 160 cinematic worlds, weather, lighting, and a hype
+drop — all static, no server.
 
 **Play it:** https://lmdelm-dev.github.io/hayate-run/
 
 ## Features
 
-- 12 original anime-style runners (school sprinter → cyber idol → rival), each
-  with unique palette, accessories, speed, and jump
+- 14 runners: 12 original anime-style runners (school sprinter → cyber idol
+  → rival), each with unique palette, accessories, speed, and jump, plus 2
+  CC0 pixel-guest runners (Kage the ninja, Majo the witch) with real
+  animated sprite sheets
 - Rear / side / front run cycles: alternating limbs, body bounce, hair + cloth
   secondary motion, jump/fall/land/hit poses
 - 160 environments (20 themes × day/dusk/night/rain/snow/storm/aurora/festival)
@@ -47,8 +49,9 @@ Pushing to `main` runs the suite in CI and deploys to GitHub Pages
 
 ## Asset / license policy
 
-No ripped anime/game assets, ever. All art is original procedural vector work
-and all music is synthesized at runtime. Details and CC0 reference sources:
+No ripped anime/game assets, ever. Art is original procedural vector work
+plus two vendored CC0 sprite sheets, and all music is synthesized at runtime.
+Details and CC0 reference sources:
 [`docs/ASSETS.md`](docs/ASSETS.md). Architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ## Credits

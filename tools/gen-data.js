@@ -35,7 +35,7 @@ const ctx = {
 ctx.window = ctx;
 ctx.globalThis = ctx;
 vm.createContext(ctx);
-const files = ['engine.js','audio.js','characters.js','animation.js','environments.js','renderer.js','weather.js','lighting.js','particles.js','effects.js','camera.js','director.js','player.js','collision.js','input.js','ui.js','performance.js','main.js'];
+const files = ['engine.js','audio.js','characters.js','animation.js','sprites.js','environments.js','renderer.js','weather.js','lighting.js','particles.js','effects.js','camera.js','director.js','player.js','collision.js','input.js','ui.js','performance.js','main.js'];
 for (const f of files) vm.runInContext(fs.readFileSync(path.join(root, 'src', f), 'utf8'), ctx, { filename: f });
 const out = vm.runInContext('JSON.stringify({chars:CHARS,envs:ENVS.map(e=>({id:e.id,name:e.name,nameJa:e.nameJa,theme:e.theme,variant:e.variant,weather:e.weather.kind,lights:e.lights,horizon:e.horizon,ground:e.ground,license:e.license,source:e.source,author:e.author})),openings:OPENINGS,effects:EFFECTS})', ctx);
 const data = JSON.parse(out);

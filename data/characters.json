@@ -497,5 +497,109 @@
     "speed": 1.2,
     "jumpV": 9,
     "desc": "Your rival. Fastest of all — beat him to the final cut."
+  },
+  {
+    "id": "kage",
+    "n": "Kage",
+    "name": "Kage",
+    "jp": "カゲ",
+    "role": "Pixel guest · shadow runner",
+    "hair": [
+      46,
+      64,
+      54
+    ],
+    "skin": [
+      232,
+      190,
+      165
+    ],
+    "top": [
+      38,
+      52,
+      66
+    ],
+    "legs": [
+      30,
+      36,
+      44
+    ],
+    "eye": [
+      120,
+      255,
+      200
+    ],
+    "scarf": 1,
+    "acc": [
+      64,
+      255,
+      170
+    ],
+    "speed": 1.13,
+    "jumpV": 8.8,
+    "desc": "CC0 pixel ninja (AutoSprite). Side walk cycle pushed to run cadence with a lean.",
+    "sprite": {
+      "src": "assets/characters/autosprite/ninja/walk-side.png",
+      "fw": 224,
+      "fh": 224,
+      "cols": 5,
+      "count": 25,
+      "h": 2.5,
+      "feet": 0.93,
+      "cadence": 2.2
+    }
+  },
+  {
+    "id": "majo",
+    "n": "Majo",
+    "name": "Majo",
+    "jp": "マジョ",
+    "role": "Pixel guest · moon witch",
+    "hair": [
+      120,
+      70,
+      180
+    ],
+    "skin": [
+      240,
+      205,
+      190
+    ],
+    "top": [
+      60,
+      40,
+      90
+    ],
+    "legs": [
+      40,
+      35,
+      60
+    ],
+    "eye": [
+      200,
+      120,
+      255
+    ],
+    "long": 1,
+    "skirt": 1,
+    "cape": 1,
+    "acc": [
+      180,
+      120,
+      255
+    ],
+    "speed": 1.05,
+    "jumpV": 9,
+    "desc": "CC0 pixel witch (AutoSprite). Floaty jump, moonlit cape palette.",
+    "sprite": {
+      "src": "assets/characters/autosprite/witch/walk-side.png",
+      "fw": 224,
+      "fh": 224,
+      "cols": 5,
+      "count": 25,
+      "h": 2.5,
+      "feet": 0.93,
+      "cadence": 2.2
+    }
   }
 ]
